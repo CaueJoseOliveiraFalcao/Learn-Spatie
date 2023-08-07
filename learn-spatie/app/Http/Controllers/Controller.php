@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Request;
 
 class Controller extends BaseController
 {
@@ -30,5 +31,6 @@ class Controller extends BaseController
         'email' => $email,
         'password' => bcrypt($password)
      ]);
+     return redirect()->route('login')->with('success' , 'Usuario  Cadastrado');
     }
 }
